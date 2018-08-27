@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -30,4 +29,18 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // architecture components
+    implementation "android.arch.lifecycle:extensions:$archComponentsVersion"
+    implementation "android.arch.lifecycle:runtime:$archComponentsVersion"
+    implementation "android.arch.persistence.room:runtime:$roomVersion"
+    implementation "android.arch.paging:runtime:$pagingVersion"
+    kapt "android.arch.lifecycle:compiler:$archComponentsVersion"
+    kapt "android.arch.persistence.room:compiler:$roomVersion"
+
+    // retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation"com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:retrofit-mock:$retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpLoggingInterceptorVersion"
 }
