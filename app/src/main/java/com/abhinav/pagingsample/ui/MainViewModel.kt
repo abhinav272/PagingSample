@@ -4,6 +4,7 @@ import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Transformations
 import android.arch.lifecycle.ViewModel
+import android.arch.paging.PagedList
 import com.abhinav.pagingsample.data.GithubRepository
 import com.abhinav.pagingsample.data.model.RepoEntity
 import com.abhinav.pagingsample.data.model.RepoSearchResult
@@ -18,7 +19,7 @@ class MainViewModel(private val repository: GithubRepository) : ViewModel() {
         repository.searchQuery(it)
     }
 
-    val repos: LiveData<List<RepoEntity>> = Transformations.switchMap(repoResult) { it -> it.data }
+    val repos: LiveData<PagedList<RepoEntity>> = Transformations.switchMap(repoResult) { it -> it.data }
     val networkErrors: LiveData<String> = Transformations.switchMap(repoResult) { it -> it.networkErrors }
 
     /**
