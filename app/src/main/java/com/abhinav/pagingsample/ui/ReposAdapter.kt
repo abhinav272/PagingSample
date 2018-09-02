@@ -1,12 +1,13 @@
 package com.abhinav.pagingsample.ui
 
+import android.arch.paging.PagedListAdapter
 import android.support.v7.recyclerview.extensions.ListAdapter
 import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import com.abhinav.pagingsample.data.model.RepoEntity
 
-class ReposAdapter : ListAdapter<RepoEntity, RecyclerView.ViewHolder>(REPO_COMPARATOR) {
+class ReposAdapter : PagedListAdapter<RepoEntity, RecyclerView.ViewHolder>(REPO_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder
             = RepoViewHolder.create(parent)

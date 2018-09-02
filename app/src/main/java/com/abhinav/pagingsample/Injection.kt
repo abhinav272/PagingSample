@@ -28,7 +28,7 @@ object Injection {
      * [GithubLocalCache]
      */
     private fun provideGithubRepository(context: Context): GithubRepository {
-        return GithubRepository(GithubService.create(), RepoDatabase.getInstance(context).reposDao())
+        return GithubRepository(GithubService.create(), RepoDatabase.getInstance(context.applicationContext).reposDao())
     }
 
     /**

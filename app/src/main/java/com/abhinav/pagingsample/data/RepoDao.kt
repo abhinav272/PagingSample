@@ -1,6 +1,7 @@
 package com.abhinav.pagingsample.data
 
 import android.arch.lifecycle.LiveData
+import android.arch.paging.DataSource
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy
@@ -15,5 +16,5 @@ interface RepoDao {
 
     @Query("SELECT * FROM repos WHERE (name LIKE :queryString) OR (description LIKE " +
             ":queryString) ORDER BY stars DESC, name ASC")
-    fun fetchRepo(name: String): LiveData<List<RepoEntity>>
+    fun fetchRepo(queryString: String): DataSource.Factory<Int, RepoEntity>
 }

@@ -122,6 +122,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViewModel() {
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProviders.of(this,
+                Injection.provideViewModelFactory(this)).get(MainViewModel::class.java)
     }
 }
