@@ -10,9 +10,9 @@ import com.abhinav.pagingsample.data.model.RepoEntity
 import com.abhinav.pagingsample.data.model.RepoSearchResult
 
 class MainViewModel(private val repository: GithubRepository) : ViewModel() {
-    companion object {
-        private const val VISIBLE_THRESHOLD = 5
-    }
+//    companion object {
+//        private const val VISIBLE_THRESHOLD = 5
+//    }
 
     private val queryLiveData = MutableLiveData<String>()
     private val repoResult: LiveData<RepoSearchResult> = Transformations.map(queryLiveData) {
@@ -29,14 +29,14 @@ class MainViewModel(private val repository: GithubRepository) : ViewModel() {
         queryLiveData.postValue(queryString)
     }
 
-    fun listScrolled(visibleItemCount: Int, lastVisibleItemPosition: Int, totalItemCount: Int) {
-        if (visibleItemCount + lastVisibleItemPosition + VISIBLE_THRESHOLD >= totalItemCount) {
-            val immutableQuery = lastQueryValue()
-            if (immutableQuery != null) {
-                repository.requestMore(immutableQuery)
-            }
-        }
-    }
+//    fun listScrolled(visibleItemCount: Int, lastVisibleItemPosition: Int, totalItemCount: Int) {
+//        if (visibleItemCount + lastVisibleItemPosition + VISIBLE_THRESHOLD >= totalItemCount) {
+//            val immutableQuery = lastQueryValue()
+//            if (immutableQuery != null) {
+//                repository.requestMore(immutableQuery)
+//            }
+//        }
+//    }
 
     /**
      * Get the last query value.

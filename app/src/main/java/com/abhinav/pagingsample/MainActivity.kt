@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         initViewModel()
         setupDecorations()
-        setupScrollListner()
+//        setupScrollListner()
         initAdapter()
 
         val query = savedInstanceState?.getString(LAST_SEARCH_QUERY) ?: DEFAULT_QUERY
