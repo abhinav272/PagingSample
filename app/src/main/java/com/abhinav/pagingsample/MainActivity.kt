@@ -104,17 +104,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupScrollListner() {
-        val layoutManager = list.layoutManager as LinearLayoutManager
-        list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
-                val totalItemCount = layoutManager.itemCount
-                val visibleItemCount = layoutManager.childCount
-                val lastVisibleItem = layoutManager.findLastVisibleItemPosition()
-
-                viewModel.listScrolled(visibleItemCount, lastVisibleItem, totalItemCount)
-            }
-        })
+//        val layoutManager = list.layoutManager as LinearLayoutManager
+//        list.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+//            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+//                super.onScrolled(recyclerView, dx, dy)
+//                val totalItemCount = layoutManager.itemCount
+//                val visibleItemCount = layoutManager.childCount
+//                val lastVisibleItem = layoutManager.findLastVisibleItemPosition()
+//
+//                viewModel.listScrolled(visibleItemCount, lastVisibleItem, totalItemCount)
+//            }
+//        })
     }
 
     private fun setupDecorations() {
