@@ -16,7 +16,8 @@ class MainViewModel(private val repository: GithubRepository) : ViewModel() {
 
     private val queryLiveData = MutableLiveData<String>()
     private val repoResult: LiveData<RepoSearchResult> = Transformations.map(queryLiveData) {
-        repository.searchQuery(it)
+        val it2 = "%$it%"
+        repository.searchQuery(it2)
     }
 
     val repos: LiveData<PagedList<RepoEntity>> = Transformations.switchMap(repoResult) { it -> it.data }
