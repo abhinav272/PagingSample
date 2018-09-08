@@ -1,4 +1,4 @@
-package com.abhinav.pagingsample.ui
+package com.abhinav.pagingsample.ui.github
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData

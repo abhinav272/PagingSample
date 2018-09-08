@@ -10,8 +10,8 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import com.abhinav.pagingsample.data.model.RepoEntity
-import com.abhinav.pagingsample.ui.MainViewModel
-import com.abhinav.pagingsample.ui.ReposAdapter
+import com.abhinav.pagingsample.ui.github.MainViewModel
+import com.abhinav.pagingsample.ui.github.ReposAdapter
 import kotlinx.android.synthetic.main.activity_github_demo.*
 
 class GithubDemoActivity : AppCompatActivity() {

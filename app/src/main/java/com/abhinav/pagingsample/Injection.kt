@@ -5,8 +5,7 @@ import android.content.Context
 import com.abhinav.pagingsample.data.GithubRepository
 import com.abhinav.pagingsample.data.RepoDatabase
 import com.abhinav.pagingsample.data.api.GithubService
-import com.abhinav.pagingsample.ui.ViewModelFactory
-import java.util.concurrent.Executors
+import com.abhinav.pagingsample.ui.github.ViewModelFactory
 
 /**
  * Class that handles object creation.

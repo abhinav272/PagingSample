@@ -1,5 +1,6 @@
 package com.abhinav.pagingsample
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
@@ -21,10 +22,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openNewsDemo() {
-
+        startActivity(Intent(this, GithubDemoActivity::class.java))
     }
 
     private fun openGithubDemo() {
-
+        startActivity(Intent(this, NewsDemoActivity::class.java))
     }
 }

@@ -1,4 +1,4 @@
-package com.abhinav.pagingsample.ui
+package com.abhinav.pagingsample.ui.github
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
