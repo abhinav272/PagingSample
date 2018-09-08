@@ -5,8 +5,6 @@ import android.arch.lifecycle.ViewModelProviders
 import android.arch.paging.PagedList
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -16,7 +14,7 @@ import com.abhinav.pagingsample.ui.MainViewModel
 import com.abhinav.pagingsample.ui.ReposAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class GithubDemoActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
     private val adapter = ReposAdapter()

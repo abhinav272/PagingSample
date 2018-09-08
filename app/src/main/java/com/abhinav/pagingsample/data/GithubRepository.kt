@@ -1,6 +1,5 @@
 package com.abhinav.pagingsample.data
 
-import android.arch.lifecycle.MutableLiveData
 import android.arch.paging.LivePagedListBuilder
 import android.util.Log
 import com.abhinav.pagingsample.data.api.GithubService
