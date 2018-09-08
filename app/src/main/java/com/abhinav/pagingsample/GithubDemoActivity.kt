@@ -12,7 +12,7 @@ import android.widget.Toast
 import com.abhinav.pagingsample.data.model.RepoEntity
 import com.abhinav.pagingsample.ui.MainViewModel
 import com.abhinav.pagingsample.ui.ReposAdapter
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_github_demo.*
 
 class GithubDemoActivity : AppCompatActivity() {
 
@@ -26,7 +26,7 @@ class GithubDemoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_github_demo)
 
         initViewModel()
         setupDecorations()

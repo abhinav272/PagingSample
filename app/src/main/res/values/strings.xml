@@ -5,4 +5,6 @@
     <string name="search_hint">GitHub Repository</string>
     <string name="no_results">No results 😓</string>
     <string name="unknown">\?</string>
+    <string name="github_demo">Demo on Github Repository\nPersistence bound data backed by Network, Uses BoundaryCallback</string>
+    <string name="news_demo">Demo on NewsAPI\n Network bound data, uses Custom DataSource</string>
 </resources>
