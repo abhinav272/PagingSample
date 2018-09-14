@@ -8,8 +8,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         btn_github_demo.setOnClickListener {
@@ -22,10 +22,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openNewsDemo() {
-        startActivity(Intent(this, GithubDemoActivity::class.java))
+        startActivity(Intent(this, NewsDemoActivity::class.java))
     }
 
     private fun openGithubDemo() {
-        startActivity(Intent(this, NewsDemoActivity::class.java))
+        startActivity(Intent(this, GithubDemoActivity::class.java))
     }
 }
