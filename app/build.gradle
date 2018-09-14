@@ -14,6 +14,13 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+
+        debug{
+            buildConfigField ('String', 'API_KEY', apikey)
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -48,4 +55,7 @@ dependencies {
     //Rx
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.1'
+
+    // ImageLoading
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
