@@ -14,10 +14,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-fun searchNews(query: String, onSuccess: (repos: List<NewsItem>) -> Unit,
+fun searchNews(query: String, page: Int,  onSuccess: (newsItems: List<NewsItem>) -> Unit,
                onError: (error: String) -> Unit) {
 
-    NewsService.create().searchNewsForQuery(query).enqueue(object : Callback<NewsSearchResponse> {
+    NewsService.create().searchNewsForQuery(query, page).enqueue(object : Callback<NewsSearchResponse> {
         override fun onFailure(call: Call<NewsSearchResponse>, t: Throwable) {
             Log.e("NewsService: ", t.message)
             onError(t.message ?: "unknown error")
@@ -38,12 +38,12 @@ fun searchNews(query: String, onSuccess: (repos: List<NewsItem>) -> Unit,
 
 interface NewsService {
 
-    @GET("/everything?")
-    fun searchNewsForQuery(@Query("q") query: String): Call<NewsSearchResponse>
+    @GET("/v2/everything")
+    fun searchNewsForQuery(@Query("q") query: String, @Query("page") page: Int): Call<NewsSearchResponse>
 
 
     companion object {
-        private const val BASE_URL = "https://newsapi.org/v2/"
+        private const val BASE_URL = "https://newsapi.org/"
 
         fun create(): NewsService {
             val logger = HttpLoggingInterceptor()
