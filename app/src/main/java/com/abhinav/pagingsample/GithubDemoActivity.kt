@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProviders
 import android.arch.paging.PagedList
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -77,6 +78,7 @@ class GithubDemoActivity : AppCompatActivity() {
     private fun initAdapter() {
         list.adapter = adapter
         viewModel.repos.observe(this, Observer<PagedList<RepoEntity>> {
+            Log.e("Data Github ", "${it?.size}")
             showEmptyList(it?.size == 0)
             adapter.submitList(it)
         })
