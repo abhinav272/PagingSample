@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.abhinav.pagingsample.R
 import com.abhinav.pagingsample.data.model.NewsItem
+import com.squareup.picasso.Picasso
 
 class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -32,6 +33,7 @@ class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             tvTitle.text = newsItem.title
             tvAuthor.text = newsItem.author
             tvPublishedAt.text = newsItem.publishedAt
+            Picasso.get().load(newsItem.urlToImage).into(ivItem)
         } else {
             Toast.makeText(itemView.context, "Loading next page", Toast.LENGTH_LONG).show()
         }
