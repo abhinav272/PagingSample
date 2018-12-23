@@ -11,6 +11,7 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
+import com.abhinav.pagingsample.data.model.NetworkState
 import com.abhinav.pagingsample.data.model.NewsItem
 import com.abhinav.pagingsample.ui.news.NewsAdapter
 import com.abhinav.pagingsample.ui.news.NewsViewModel
@@ -75,7 +76,23 @@ class NewsDemoActivity : AppCompatActivity() {
             Log.e("Toast", "${it?.status} ")
             if (!it?.msg.isNullOrBlank())
                 Toast.makeText(baseContext, it?.msg, Toast.LENGTH_LONG).show()
+
+            if (it?.equals(NetworkState.PAGING)!!){
+                showPagingLoader()
+            } else {
+                hidePagingLoader()
+            }
         })
+    }
+
+    fun showPagingLoader() {
+        progressBar.visibility = View.VISIBLE
+        Log.e("pager", "show")
+    }
+
+    fun hidePagingLoader() {
+        progressBar.visibility = View.INVISIBLE
+        Log.e("pager", "hide")
     }
 
     private fun showEmptyList(b: Boolean) {

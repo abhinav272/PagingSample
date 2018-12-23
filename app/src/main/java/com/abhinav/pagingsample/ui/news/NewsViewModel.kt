@@ -4,6 +4,7 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Transformations
 import android.arch.lifecycle.ViewModel
 import com.abhinav.pagingsample.data.NewsRepository
+import com.abhinav.pagingsample.data.model.NetworkState
 
 class NewsViewModel : ViewModel() {
 

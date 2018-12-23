@@ -6,6 +6,7 @@ import android.arch.lifecycle.Transformations
 import android.arch.lifecycle.ViewModel
 import android.arch.paging.PagedList
 import com.abhinav.pagingsample.data.GithubRepository
+import com.abhinav.pagingsample.data.model.NetworkState
 import com.abhinav.pagingsample.data.model.RepoEntity
 import com.abhinav.pagingsample.data.model.RepoSearchResult
 
