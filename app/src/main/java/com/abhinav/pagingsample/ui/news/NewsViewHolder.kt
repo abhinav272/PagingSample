@@ -36,6 +36,18 @@ class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             tvPublishedAt.text = newsItem.publishedAt
 //            Picasso.get().load(newsItem.urlToImage).into(ivItem)
             Glide.with(ivItem).load(newsItem.urlToImage).thumbnail(0.01f).into(ivItem)
+
+//            val thumbnailOfThumbnailRequest = Glide.with(ivItem)
+//                    .load("https://picsum.photos/50/50?image=0")
+//
+//            val thumbnailRequest = Glide.with(ivItem)
+//                    .load("https://picsum.photos/500/500?image=0")
+//                    .thumbnail(thumbnailOfThumbnailRequest)
+//
+//            Glide.with(ivItem)
+//                    .load("https://picsum.photos/2500/2500?image=0")
+//                    .thumbnail(thumbnailRequest)
+//                    .into(ivItem)
         } else {
             Toast.makeText(itemView.context, "Loading next page", Toast.LENGTH_LONG).show()
         }
