@@ -33,6 +33,8 @@
         android:layout_height="0dp"
         android:paddingVertical="@dimen/row_item_margin_vertical"
         android:scrollbars="vertical"
+        android:paddingBottom="50dp"
+        android:clipToPadding="false"
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
