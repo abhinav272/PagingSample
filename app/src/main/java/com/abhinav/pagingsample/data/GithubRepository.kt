@@ -22,6 +22,7 @@ class GithubRepository(private val service: GithubService,
         // Construct the boundary callback
         val boundaryCallback = RepoBoundaryCallback(query, service, repoDao)
         val networkErrors = boundaryCallback.networkErrors
+        val pagingLiveData = boundaryCallback.pagingLiveData
 
         // Get the paged list
         val data = LivePagedListBuilder(dataSourceFactory, DATABASE_PAGE_SIZE)

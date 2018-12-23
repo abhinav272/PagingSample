@@ -5,6 +5,7 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.paging.PagedList
 import com.abhinav.pagingsample.data.api.GithubService
 import com.abhinav.pagingsample.data.api.searchRepos
+import com.abhinav.pagingsample.data.model.NetworkState
 import com.abhinav.pagingsample.data.model.RepoEntity
 import io.reactivex.Completable
 import io.reactivex.schedulers.Schedulers
@@ -23,9 +24,12 @@ class RepoBoundaryCallback(private val query: String,
     private var lastRequestedPage = 1
 
     private val _networkErrors = MutableLiveData<String>()
+    private val _pagingLiveData = MutableLiveData<NetworkState>()
     // LiveData of network errors.
     val networkErrors: LiveData<String>
         get() = _networkErrors
+    val pagingLiveData: LiveData<NetworkState>
+        get() = _pagingLiveData
 
     // avoid triggering multiple requests in the same time
     private var isRequestInProgress = false
@@ -36,6 +40,7 @@ class RepoBoundaryCallback(private val query: String,
 
     override fun onItemAtEndLoaded(itemAtEnd: RepoEntity) {
         requestAndSaveData(query)
+        _pagingLiveData.value = NetworkState.LOADED
     }
 
     private fun requestAndSaveData(query: String) {
@@ -45,10 +50,12 @@ class RepoBoundaryCallback(private val query: String,
         searchRepos(service, query, lastRequestedPage, NETWORK_PAGE_SIZE, { repos ->
             lastRequestedPage++
             isRequestInProgress = false
+            _pagingLiveData.value = NetworkState.PAGING
             Completable.fromAction { repoDao.insert(repos) }.subscribeOn(Schedulers.io()).subscribe()
         }, { error ->
             _networkErrors.postValue(error)
             isRequestInProgress = false
+            _pagingLiveData.value = NetworkState.FAILED
         })
     }
 }

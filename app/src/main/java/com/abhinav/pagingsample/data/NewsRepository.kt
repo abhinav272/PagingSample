@@ -2,6 +2,7 @@ package com.abhinav.pagingsample.data
 
 import android.arch.lifecycle.Transformations
 import android.arch.paging.LivePagedListBuilder
+import android.arch.paging.PagedList
 import android.util.Log
 import com.abhinav.pagingsample.data.model.NewsSearchResult
 
@@ -20,7 +21,13 @@ class NewsRepository {
             input.networkState
         }
 
-        val livePagedList = LivePagedListBuilder(dataSourceFactory, NETWORK_PAGE_SIZE)
+        val config: PagedList.Config = PagedList.Config.Builder()
+                .setEnablePlaceholders(true)
+                .setPrefetchDistance(2)
+                .setPageSize(NETWORK_PAGE_SIZE)
+                .build()
+
+        val livePagedList = LivePagedListBuilder(dataSourceFactory, config)
                 .setInitialLoadKey(1)
                 .build()
 

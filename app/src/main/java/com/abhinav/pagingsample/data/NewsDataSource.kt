@@ -24,7 +24,7 @@ class NewsDataSource(private val query: String) : PageKeyedDataSource<Int, NewsI
     }
 
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, NewsItem>) {
-        networkState.postValue(NetworkState.LOADING)
+        networkState.postValue(NetworkState.PAGING)
 
         searchNews(query, params.key, { newsItems ->
             networkState.postValue(NetworkState.LOADED)
