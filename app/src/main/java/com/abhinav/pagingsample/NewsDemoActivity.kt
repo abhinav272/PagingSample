@@ -4,7 +4,6 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.arch.paging.PagedList
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
@@ -12,7 +11,6 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
-import com.abhinav.pagingsample.data.model.NetworkState
 import com.abhinav.pagingsample.data.model.NewsItem
 import com.abhinav.pagingsample.ui.news.NewsAdapter
 import com.abhinav.pagingsample.ui.news.NewsViewModel
@@ -68,7 +66,7 @@ class NewsDemoActivity : AppCompatActivity() {
         rv_news.layoutManager = LinearLayoutManager(this)
 
         viewModel.newsSearchPagedData.observe(this, Observer<PagedList<NewsItem>> {
-//            showEmptyList(it?.size == 0)
+            //            showEmptyList(it?.size == 0)
             Log.e("Data", " size - ${it?.size}")
             adapter.submitList(it)
         })
