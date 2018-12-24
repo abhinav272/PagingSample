@@ -71,28 +71,6 @@ class NewsDemoActivity : AppCompatActivity() {
             Log.e("Data", " size - ${it?.size}")
             adapter.submitList(it)
         })
-
-        viewModel.networkState.observe(this, Observer {
-            Log.e("Toast", "${it?.status} ")
-            if (!it?.msg.isNullOrBlank())
-                Toast.makeText(baseContext, it?.msg, Toast.LENGTH_LONG).show()
-
-            if (it?.equals(NetworkState.PAGING)!!){
-                showPagingLoader()
-            } else {
-                hidePagingLoader()
-            }
-        })
-    }
-
-    fun showPagingLoader() {
-        progressBar.visibility = View.VISIBLE
-        Log.e("pager", "show")
-    }
-
-    fun hidePagingLoader() {
-        progressBar.visibility = View.INVISIBLE
-        Log.e("pager", "hide")
     }
 
     private fun showEmptyList(b: Boolean) {
