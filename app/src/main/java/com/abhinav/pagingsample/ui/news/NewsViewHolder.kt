@@ -1,6 +1,7 @@
 package com.abhinav.pagingsample.ui.news
 
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -49,7 +50,7 @@ class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 //                    .thumbnail(thumbnailRequest)
 //                    .into(ivItem)
         } else {
-            Toast.makeText(itemView.context, "Loading next page", Toast.LENGTH_LONG).show()
+
         }
     }
 }
