@@ -15,13 +15,18 @@ class RepoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val stars: TextView = view.findViewById(R.id.repo_stars)
     private val language: TextView = view.findViewById(R.id.repo_language)
     private val forks: TextView = view.findViewById(R.id.repo_forks)
+    private val deleteBtn: TextView = view.findViewById(R.id.btn_delete)
+    private val starBtn: TextView = view.findViewById(R.id.btn_star)
 
     private var repo: RepoEntity? = null
 
     companion object {
-        fun create(parent: ViewGroup): RepoViewHolder {
+        private lateinit var listener: (RepoEntity, Int) -> Unit
+
+        fun create(parent: ViewGroup, listener: (RepoEntity, Int) -> Unit): RepoViewHolder {
             val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.repo_view_item, parent, false)
+            this.listener = listener
             return RepoViewHolder(view)
         }
     }
@@ -62,6 +67,12 @@ class RepoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             languageVisibility = View.VISIBLE
         }
         language.visibility = languageVisibility
+
+        deleteBtn.setOnClickListener {
+            listener(repo, 0)
+        }
+
+        starBtn.setOnClickListener { listener(repo, 1) }
     }
 
 }

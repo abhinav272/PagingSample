@@ -45,4 +45,12 @@ class MainViewModel(private val repository: GithubRepository) : ViewModel() {
      */
     fun lastQueryValue(): String? = queryLiveData.value
 
+    fun onDeleteClicked(p1: RepoEntity) {
+        repository.deleteRepo(p1)
+    }
+
+    fun starRepo(p1: RepoEntity) {
+        repository.starRepo(p1)
+    }
+
 }
