@@ -1,11 +1,7 @@
 package com.abhinav.pagingsample.data
 
-import android.arch.lifecycle.LiveData
 import android.arch.paging.DataSource
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.OnConflictStrategy
-import android.arch.persistence.room.Query
+import android.arch.persistence.room.*
 import com.abhinav.pagingsample.data.model.RepoEntity
 
 @Dao
@@ -17,4 +13,10 @@ interface RepoDao {
     @Query("SELECT * FROM repos WHERE (name LIKE :queryString) OR (description LIKE " +
             ":queryString) ORDER BY stars DESC, name ASC")
     fun fetchRepo(queryString: String): DataSource.Factory<Int, RepoEntity>
+
+    @Delete
+    fun deleteRepo(repoEntity: RepoEntity)
+
+    @Query("UPDATE repos SET stars = :stars WHERE id = :id")
+    fun starRepo(stars: Int, id: Long)
 }
