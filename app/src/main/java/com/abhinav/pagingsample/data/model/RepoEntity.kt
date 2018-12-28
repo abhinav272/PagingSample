@@ -12,7 +12,7 @@ data class RepoEntity(
         @field:SerializedName("full_name") val fullName: String,
         @field:SerializedName("description") val description: String?,
         @field:SerializedName("html_url") val url: String,
-        @field:SerializedName("stargazers_count") val stars: Int,
+        @field:SerializedName("stargazers_count") var stars: Int,
         @field:SerializedName("forks_count") val forks: Int,
         @field:SerializedName("language") val language: String?
 )
