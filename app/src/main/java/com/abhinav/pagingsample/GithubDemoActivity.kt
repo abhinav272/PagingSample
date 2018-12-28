@@ -10,17 +10,21 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
-import com.abhinav.pagingsample.data.model.NetworkState
 import com.abhinav.pagingsample.data.model.RepoEntity
-import com.abhinav.pagingsample.data.model.Status
 import com.abhinav.pagingsample.ui.github.MainViewModel
 import com.abhinav.pagingsample.ui.github.ReposAdapter
 import kotlinx.android.synthetic.main.activity_github_demo.*
 
-class GithubDemoActivity : AppCompatActivity() {
+class GithubDemoActivity : AppCompatActivity(), (RepoEntity, Int) -> Unit {
+    override fun invoke(p1: RepoEntity, flag: Int) {
+        when (flag) {
+            0 -> viewModel.onDeleteClicked(p1)
+            else -> viewModel.starRepo(p1)
+        }
+    }
 
     private lateinit var viewModel: MainViewModel
-    private val adapter = ReposAdapter()
+    private val adapter = ReposAdapter(this)
 
     companion object {
         private const val LAST_SEARCH_QUERY: String = "last_search_query"
