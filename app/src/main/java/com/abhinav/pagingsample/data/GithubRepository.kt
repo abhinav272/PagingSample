@@ -3,7 +3,10 @@ package com.abhinav.pagingsample.data
 import android.arch.paging.LivePagedListBuilder
 import android.util.Log
 import com.abhinav.pagingsample.data.api.GithubService
+import com.abhinav.pagingsample.data.model.RepoEntity
 import com.abhinav.pagingsample.data.model.RepoSearchResult
+import io.reactivex.Completable
+import io.reactivex.schedulers.Schedulers
 
 class GithubRepository(private val service: GithubService,
                        private val repoDao: RepoDao) {
@@ -31,5 +34,17 @@ class GithubRepository(private val service: GithubService,
 
         // Get the network errors exposed by the boundary callback
         return RepoSearchResult(data, networkErrors)
+    }
+
+    fun deleteRepo(p1: RepoEntity) {
+        Completable.fromAction { repoDao.deleteRepo(p1) }
+                .subscribeOn(Schedulers.io()).subscribe()
+
+    }
+
+    fun starRepo(p1: RepoEntity) {
+        Completable.fromAction { repoDao.starRepo(p1.stars + 1, p1.id) }
+                .subscribeOn(Schedulers.io())
+                .subscribe()
     }
 }
