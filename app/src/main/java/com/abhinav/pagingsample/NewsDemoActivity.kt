@@ -10,8 +10,6 @@ import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.Toast
-import com.abhinav.pagingsample.data.model.NetworkState
 import com.abhinav.pagingsample.data.model.NewsItem
 import com.abhinav.pagingsample.ui.news.NewsAdapter
 import com.abhinav.pagingsample.ui.news.NewsViewModel
